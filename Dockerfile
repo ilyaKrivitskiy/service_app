@@ -11,8 +11,6 @@ COPY service /app
 
 EXPOSE 8000
 
-COPY entrypoint.sh /app/
-RUN chmod +x /app/entrypoint.sh
-ENTRYPOINT ["sh", "/app/entrypoint.sh"]
+RUN apk add postgresql-client postgresql-dev build-base
 
 RUN pip install -r /temp/requirements.txt
