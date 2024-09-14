@@ -30,7 +30,7 @@ class Subscription(models.Model):
     name = models.CharField(max_length=50, default="sub_name")
     client = models.ForeignKey(Client, related_name="subscription", on_delete=models.PROTECT)
     service = models.ForeignKey(Service, related_name="subscription", on_delete=models.PROTECT)
-    plan = models.ForeignKey(Tariff, related_name="subscription", on_delete=models.PROTECT)
+    tariff = models.ForeignKey(Tariff, related_name="subscription", on_delete=models.PROTECT)
 
     def __str__(self):
         return f"Subscription: {self.name}"
